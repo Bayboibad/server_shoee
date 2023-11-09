@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 async function connectToDatabase() {
     try {
-        const db = 'mongodb://127.0.0.1:27017/ql_banhang'
+        const db = 'mongodb+srv://Picsums:Long16203@cluster0.pva3ymt.mongodb.net/'
         await mongoose.connect(db);
     } catch (error) {
         console.error('Error connecting to the database:', error);
