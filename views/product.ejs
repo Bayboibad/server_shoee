@@ -114,23 +114,10 @@
                     <input type="file" class="form-control-file" name="avatar" id="productImage" accept=".jpg, .jpeg, .png" multiple  >
                 </div>
 
-                <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+                <button id="push" type="submit" >Save</button>
             </form>
         </div>
 
-        <!-- List of products -->
-        <!-- <% dataProduct.forEach((pro) => { %>
-        <div class="itemCategory">
-            <em class="itemTextCategory"><%= pro.name %></em>
-            <em class="itemTextCategory"><%= pro.price %></em>
-            <em class="itemTextCategory"><%= pro.description %></em>
-            <% // Tìm goodsCategory tương ứng với ID
-            const category = dataCategory.find(category => category._id.equals(pro.category));
-            if (category) { %>
-                <em class="itemText">TL: <%= category.name %></em>
-            <% } %>
-        </div>
-        <% }) %> -->
     </div>
 
     <!-- Optional JavaScript -->
