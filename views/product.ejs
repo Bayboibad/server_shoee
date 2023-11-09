@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Quản lý sản phẩm</h1>
+
+        <!-- Navigation links -->
+        <ul class="nav nav-pills mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Thể loại</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/product">Sản phẩm</a>
+            </li>
+        </ul>
+
+        <!-- Form for adding a new product -->
+        <div class="tab-pane fade show active mt-4" id="v-pills-add" role="tabpanel">
+            <h2>Thêm sản phẩm</h2>
+            <form action="product/add-pro" method="post" enctype="multipart/form-data">
+                <!-- Dropdown select for "Loại giày" -->
+                <div class="form-group">
+                    <label for="productCart">Loại giày</label>
+                    <select class="form-control" id="productCart" name="cart" >
+                        <option value="GiayTheThao">Giày thể thao</option>
+                        <option value="GiaySneaker">Giày sneaker</option>
+                        <option value="GiayLuoi">Giày lười</option>
+                        <option value="GiayCaoGot">Giày cao gót</option>
+                        <option value="GiayBoot">Giày boot</option>
+                        <option value="GiayCoDien">Giày cổ điển</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+
+                <!-- Input for "Tên sản phẩm" -->
+                <div class="form-group">
+                    <label for="productName">Tên sản phẩm</label>
+                    <input type="text" class="form-control" id="productName" name="name" placeholder="Nhập tên sản phẩm" >
+                </div>
+
+                <!-- Dropdown select for "Tên hãng" -->
+                <div class="form-group">
+                    <label for="productBrand">Tên hãng</label>
+                    <select class="form-control" id="productBrand" name="brand" >
+                        <option value="Converse">Converse</option>
+                        <option value="Nike">Nike</option>
+                        <option value="Adidas">Adidas</option>
+                        <option value="Puma">Puma</option>
+                        <option value="Chanel">Chanel</option>
+                        <option value="Gucci">Gucci</option>
+                        <option value="LouisVuitton">Louis Vuitton</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+
+                <!-- Input for "Giá mới" -->
+                <div class="form-group">
+                    <label for="productPriceNew">Giá mới</label>
+                    <input type="number" class="form-control" id="productPriceNew" name="priceNew" placeholder="Nhập giá mới" >
+                </div>
+
+                <!-- Input for "Giá cũ" -->
+                <div class="form-group">
+                    <label for="productPriceOld">Giá cũ</label>
+                    <input type="number" class="form-control" id="productPriceOld" name="priceOld" placeholder="Nhập giá cũ" >
+                </div>
+
+                <!-- Input for "Số lượng" -->
+                <div class="form-group">
+                    <label for="productNumber">Số lượng</label>
+                    <input type="number" class="form-control" id="productNumber" name="number" placeholder="Nhập số lượng" >
+                </div>
+
+                <!-- Textarea for "Mô tả sản phẩm" -->
+                <div class="form-group">
+                    <label for="productDescription">Mô tả sản phẩm</label>
+                    <textarea class="form-control" id="productDescription" name="description" rows="3" ></textarea>
+                </div>
+
+                <!-- Checkboxes for "Size giày" -->
+                <div class="form-group">
+                    <label for="productSizes">Size giày</label><br>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="size36" name="productSizes" value="36">
+                        <label class="form-check-label" for="size36">36</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="size37" name="productSizes" value="37">
+                        <label class="form-check-label" for="size37">37</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="size38" name="productSizes" value="38">
+                        <label class="form-check-label" for="size38">38</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="checkbox" class="form-check-input" id="size39" name="productSizes" value="39">
+                        <label class="form-check-label" for="size39">39</label>
+                    </div>
+                    <!-- Add more checkboxes for other sizes as needed -->
+                </div>
+
+                <!-- Input for "Hình ảnh sản phẩm" -->
+                <div class="form-group">
+                    <label for="productImage">Hình ảnh sản phẩm</label>
+                    <input type="file" class="form-control-file" name="avatar" id="productImage" accept=".jpg, .jpeg, .png" multiple  >
+                </div>
+
+                <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+            </form>
+        </div>
+
+        <!-- List of products -->
+        <!-- <% dataProduct.forEach((pro) => { %>
+        <div class="itemCategory">
+            <em class="itemTextCategory"><%= pro.name %></em>
+            <em class="itemTextCategory"><%= pro.price %></em>
+            <em class="itemTextCategory"><%= pro.description %></em>
+            <% // Tìm goodsCategory tương ứng với ID
+            const category = dataCategory.find(category => category._id.equals(pro.category));
+            if (category) { %>
+                <em class="itemText">TL: <%= category.name %></em>
+            <% } %>
+        </div>
+        <% }) %> -->
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
