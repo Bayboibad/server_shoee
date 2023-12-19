@@ -4,9 +4,7 @@ const Category = require('../models/category.model')
 
 exports.listCategory = async (req,res,next) => {
     const data = await Category.find()
-    res.status(200).json({
-        data: data
-    });
+    res.status(200).json(data);
  }
 exports.addCategory =async (req,res,next) => {
     try {
